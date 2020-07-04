@@ -1,0 +1,14 @@
+asgiref==3.2.10
+certifi==2020.6.20
+chardet==3.0.4
+Django==3.0.7
+django-dob-widget==1.2.0
+geojson==2.5.0
+idna==2.10
+overpass==0.7
+pytz==2020.1
+requests==2.24.0
+Shapely==1.7.0
+six==1.15.0
+sqlparse==0.3.1
+urllib3==1.25.9

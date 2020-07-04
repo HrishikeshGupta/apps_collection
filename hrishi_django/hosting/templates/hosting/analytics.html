@@ -1,0 +1,106 @@
+    
+{% extends "hosting/base.html" %}
+{% load static %}
+
+{% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hosting/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'hosting/css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+<!--     this is header in green -->
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <center>Intrested in Statistics! Have a look!</center>
+                </h1>
+            </div>
+        </div>
+    </section>
+    
+<!--     this is tables of count -->
+    <div class="container">
+        <br>
+        <h1 style="text-align:center;">Table of Toatal Count</h1>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>PEOPLE WHO REACHED TO US</th>
+                    <th>LATTITUDE & LONGITUDE SEARCHES</th>
+                    <th>CITY SEARCHES</th>
+                    <th>STUDENT DB ENTRIES</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ total_writers_data }}</td>
+                    <td>{{ total_latlong_data }}</td>
+                    <td>{{ total_city }}</td>
+                    <td>{{ total_student_data.total_student_data }}</td>
+                <tr>
+            </tbody>
+        </table>
+    </div>
+    <center>
+        <script type="text/javascript">
+            window.onload = function () {
+                var chart = new CanvasJS.Chart("chartContainer",
+                {
+                    title:{
+                      text: "Garphs of Engagement per Appwise"
+                    },
+                    animationEnabled:true,
+                    data: [
+                    {
+                      type: "column",
+                      showInLegend: true,
+                      dataPoints: [
+                        { y: {{ total_writers_data }}, label: "Write to us" },
+                        { y: {{ total_latlong_data }}, label: "Reverse Geo" },
+                        { y: {{ total_city }}, label: "City Weather" },
+                        { y: {{ total_student_data.total_student_data }}, label: "StudentDb" },
+                      ]
+                }
+                ]
+              });
+ 
+
+              var chart1 = new CanvasJS.Chart("chartContainer1",
+                {
+                title:{
+                text: "Grouping of Students by Age"
+                },
+                animationEnabled:true,
+                data: [
+                {
+                  type: "pie",
+                  showInLegend: true,
+                  dataPoints: [
+                    { y: {{ total_student_data.under_18 }}, indexLabel: "Under 18" },
+                    { y: {{ total_student_data.under_24 }}, indexLabel: "Under 24" },
+                    { y: {{ total_student_data.others }}, indexLabel: "Others Others" },
+                  ]
+                }
+                ]
+              });
+            chart.render();
+            chart1.render();
+            }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <div id="chartContainer" style="height: 400px; width: 60%;"></div>
+    <div id="chartContainer1" style="height: 500px; width: 100%;"></div>
+    </center>
+
+        
+            
+    
+{% endblock content %}

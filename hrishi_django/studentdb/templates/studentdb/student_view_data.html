@@ -1,0 +1,79 @@
+{% extends "hosting/base.html" %}
+{% load static %}
+
+{% block content %}
+    {% if error %}
+        <script>
+            alert('{{ error }}');
+        </script>
+    {% endif %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'hosting/css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <center>
+        <section class="hero is-primary">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                        Add data and search by your email!
+                    </h1>
+                </div>
+            </div>
+        </section>
+    <br>
+     <center>
+    
+    <a class="btn btn-primary" href="/studentdb/add_data" role="button">Click on me to add new data</a>
+    </center>
+    <br>
+    <br>
+    <form method="GET" class="get-form">  
+        {{ form.as_p }}  
+        <br>
+        <button type="submit" class="save btn btn-default">Search</button>  
+    </form>  
+    </center>
+    
+    {% if data %}
+        <div class="container">
+            <br>
+            <h2 style="text-align:center;">YOUR RESULT</h2>            
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>AGE</th>
+                    <th>DOB</th>
+                    <th>QUALIFICATION</th>
+                    <th>SPECIALIZATION</th>
+                    <th>COLLEGE</th>
+                    <th>ADDRESS</th>
+                     
+                    
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ data.name }}</td>
+                        <td>{{ data.age }}</td>
+                        <td>{{ data.dob }}</td>
+                        <td>{{ data.qualification }}</td>
+                        <td>{{ data.specialization }}</td>
+                        <td>{{ data.college }}</td>
+                        <td>{{ data.address }}</td> 
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    {% endif %}
+    <br>
+    <br>
+    
+{% endblock content %}

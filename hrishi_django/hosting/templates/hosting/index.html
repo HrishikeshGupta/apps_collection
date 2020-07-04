@@ -1,0 +1,81 @@
+
+{% extends "hosting/base.html" %}
+{% load static %}
+
+{% block content %}
+       <!-- <h3>
+           <p style="text-align:center; color:Green">
+               Say hello to a wide range of apps.<br>
+               Experience the apps and do write back to us.<br>
+               All feedbacks are valuable.<br>
+               STAY CONNECTED
+           </p>
+       </h3> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hosting/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'hosting/css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <center><p style="text-align:center; color:Yellow">
+               Say hello to a wide range of apps.<br>
+               Experience the apps and do write back to us.<br>
+               All feedbacks are valuable.<br>
+               STAY CONNECTED
+           </p></center>
+                </h1>
+            </div>
+        </div>
+    </section>
+       <br>
+       <h2>
+           <p style="text-align:center;">Products</p>
+       </h2>
+       <br>
+       <br>
+       <section class="product-cards">
+       <div class="product-card">
+           <img src="{% static 'hosting/images/weather1.jpg' %}" alt="" />
+<!--            <h2><a href="http://127.0.0.1:8000/weather" target="_blank">Weather of your city </a></h2> -->
+            <h2><a href="http://127.0.0.1:8000/weather" style="color:blue;">Weather of your city </a></h2>
+           <p class="current-price">"Enter you city to check"</p>
+       </div>
+
+       <div class="product-card">
+           <img src="{% static 'hosting/images/car_parking.png' %}" alt="" />
+           <h2><a href="http://35.202.65.219/cars/" style="color:blue;">Car parking</a></h2>
+           <p class="current-price">"Car parking details"</p>
+       </div>
+
+       <div class="product-card">
+           <img src="{% static 'hosting/images/studentdb.png' %}" alt="" />
+           <h2><a href="http://127.0.0.1:8000/studentdb" style="color:blue;">Student Database</a></h2>
+           <p class="current-price">"Add deatils about students"</p>
+       </div>
+   
+       <div class="product-card">
+           <img src="{% static 'hosting/images/latlong.png' %}" alt="" />
+           <h2><a href="http://127.0.0.1:8000/reversegeo" style="color:blue;">Reverse Geo code</a></h2>
+           <p class="current-price">"Get address from lat/long"</p>
+       </div>
+   
+       <div class="product-card">
+           <img src="{% static 'hosting/images/write.jpg' %}" alt="" />
+           <h2><a href="http://127.0.0.1:8000/writers" style="color:blue;">Write to us</a></h2>
+           <p class="current-price">"Send us your thoughts"</p>
+       </div>
+       
+       <div class="product-card">
+           <img src="{% static 'hosting/images/sa.jpg' %}" alt="" />
+           <h2><a href="http://127.0.0.1:8000/hosting/analytics" style="color:blue;">Sites Analytics</a></h2>
+           <p class="current-price">"See whats happening here"</p>
+       </div>
+   </section>
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends "hosting/base.html" %}
+{% load static %}
+ 
+{% block content %}
+<!-- <br><br>
+<center><h2>Write to us</h2>
+<br><br> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'hosting/css/style.css' %}">
+
+<center>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Write to us!!!
+            </h1>
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<form method="POST" class="post-form">  
+        {% csrf_token %}  
+        {{ form.as_p }}  
+        <br>
+        <button type="submit" class="save btn btn-default">Save</button>  
+    </form>  
+</center>
+{% endblock content %}
