@@ -3,6 +3,12 @@
 {% load static %}
 
 {% block content %}
+{% if error %}
+        <script>
+            alert('{{ error }}');
+        </script>
+    {% endif %}
+
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +22,6 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
     <style>
-        
-        }
     </style>
     <section class="hero is-primary">
         <div class="hero-body">
@@ -32,132 +36,134 @@
             </div>
         </div>
     </section>
-       <br>
-       <h2>
-           <p style="text-align:center;">Products</p>
-       </h2>
-
-    <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:30%;min-width:300px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()"
-  class="w3-bar-item w3-button">Close Menu</a>
-  <a href="#food" onclick="w3_close()" class="w3-bar-item w3-button">Food</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">About</a>
-</nav>
-
-<!-- Top menu -->
+    <br>
+    <h2>
+        <p style="text-align:center;">Products</p>
+    </h2>
   
-<!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+    <!-- !PAGE CONTENT! -->
+    <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+     <!-- First Photo Grid-->
+        <a href="/covid19/">
+            <div class="w3-quarter">
+                <img src="{% static 'hosting/images/corona_21.jpg' %}" alt="covid19" style="width:60%">
+                <h3>Covid_19 Status</h3>
+                <p>Check whats is the status of your state/ut here!</p>
+            </div>
+        </a>
+        
+        <a href="/weather">
+            <div class="w3-quarter">
+                <img src="{% static 'hosting/images/weather2.jpg' %}" alt="weather" style="width:60%">
+                <h3>Weather of your city!</h3>
+                <p>See how it feels like at your city<br> right now!</p>
+            </div>
+        </a>
+        
+        <a href="/blog/get_blog">
+            <div class="w3-quarter">
+                <img src="{% static 'hosting/images/blog_1a.png' %}" alt="blog" style="width:60%">
+                <h3>Blogs</h3>
+                <p>Want to know what is happening<br> here in this site! Go ahead!</p>
+            </div>
+        </a>
 
-  <!-- First Photo Grid-->
-    <a href="/weather">
-    <div class="w3-quarter">
-      <img src="{% static 'hosting/images/weather2.jpg' %}" alt="Cherries" style="width:60%">
-      <h3>Weather of your city!</h3>
-      <p>See how it feels like at your city<br> right now!</p>
-    </div>
-    </a>
+        <a href="http://35.202.65.219/cars/">
+            <div class="w3-quarter">
+                <img src="{% static 'hosting/images/car_parking.png' %}" alt="Sandwich" style="width:60%">
+                <h3>Car Parking!</h3>
+                <p>Imagine your self as a car parking manager and view the data and analytics with a whole new experience.</p>
+            </div>
+        </a>
 
-    <a href="/reversegeo/">
-    <div class="w3-quarter">
-      <img src="{% static 'hosting/images/latlong.png' %}" alt="Pasta and Wine" style="width:60%">
-      <h3>ReverseGeo</h3>
-      <p>Give me latitude and longitude,<br> I will give you address!</p>
-    </div>
-    </a>
+         
     
-    <a href="/studentdb/">
-    <div class="w3-quarter">
-      <img src="{% static 'hosting/images/studentdb.png' %}" alt="Popsicle" style="width:60%">
-      <h3>Student Data</h3>
-      <p>Add and search data here!</p>
     </div>
-    </a>
-
-<!--     <div class="w3-row-padding w3-padding-16 w3-center" id="food">
- -->    <a href="http://35.202.65.219/cars/">
-    <div class="w3-quarter">
-      <img src="{% static 'hosting/images/car_parking.png' %}" alt="Sandwich" style="width:60%">
-      <h3>Car parking!</h3>
-      <p>Imagine your self as a car parking manager and view the data and analytics with a whole new experience.</p>
+    
+    <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+     <!-- 2nd Photo Grid-->
+    
+        <a href="/reversegeo/">
+            <div class="w3-quarter">
+                <img src="{% static 'hosting/images/latlong.png' %}" alt="reversegeo" style="width:60%">
+                <h3>ReverseGeo</h3>
+                <p>Give me latitude and longitude,<br> I will give you address!</p>
+            </div>
+        </a>
+    
+         <a href="/studentdb/">
+            <div class="w3-quarter">
+                <img src="{% static 'hosting/images/studentdb.png' %}" alt="studentdb" style="width:60%">
+                <h3>Student Data</h3>
+                <p>Add and search data here!</p>
+            </div>
+        </a>
+        
+        
+        <a href="/writers/">
+            <div class="w3-quarter">
+                <img src="{% static 'hosting/images/write.jpg' %}" alt="Salmon" style="width:60%">
+                <h3>Write back to us</h3>
+                <p>Any queries, feedbacks, ideas write back to us</p>
+            </div>
+        </a>
+        
+         <a href="/hosting/analytics">
+            <div class="w3-quarter">
+                <img src="{% static 'hosting/images/sa.jpg' %}" alt="analytics" style="width:60%">
+                <h3>Sites Analytics</h3>
+                <p>Want to know what is happening<br> here in this site! Go ahead!</p>
+            </div>
+        </a>
     </div>
-    </a>
 
-  </div>
-
-  
-  <!-- Second Photo Grid-->
-  <div class="w3-row-padding w3-padding-16 w3-center">
-
-    <a href="/hosting/analytics">
-    <div class="w3-quarter">
-      <img src="{% static 'hosting/images/sa.jpg' %}" alt="Steak" style="width:60%">
-      <h3>Sites Analytics</h3>
-      <p>Want to know what is happening<br> here in this site! Go ahead!</p>
-    </div>
-    </a>
-     
-    <a href="/writers/">
-    <div class="w3-quarter">
-      <img src="{% static 'hosting/images/write.jpg' %}" alt="Salmon" style="width:60%">
-      <h3>Write back to us</h3>
-      <p>Any queries, feedbacks, ideas write back to us</p>
-    </div>
-  </a>
-  </div>
 
     
   <hr id="about">
 
   <!-- About Section -->
-  <div class="w3-container w3-padding-32 w3-center">  
-    <h3>About Me, Hrishikesh</h3><br>
-    <img src="{% static 'hosting/images/my_pic.jpg' %}" alt="Me" class="w3-image" style="display:block;margin:auto" width="400" height="233">
-    <div class="w3-padding-32">
-      <h4><b>Python Developer</b></h4>
-      <h6><i>With Passion For Good and Efficient Coding </i></h6>
-      <p>Experienced working startup product based companies(2+ years) in working with ORM, Designing & Developing RESTful APIs and Database, Writing scalable codes, Versioning, Debugging, Data Extraction/Analysis, Fraud Detection, Data visualisation, Big data. Integrating APIs, Automating Tasks and equipped with understanding of Data Science and Data Analytics.</p>
+    <div class="w3-container w3-padding-32 w3-center">  
+        <h3>About Me, Hrishikesh</h3><br>
+        <img src="{% static 'hosting/images/my_pic.jpg' %}" alt="Me" class="w3-image" style="display:block;margin:auto" width="400" height="233">
+        <div class="w3-padding-32">
+            <h4><b>Python Developer</b></h4>
+            <h6><i>With Passion For Good and Efficient Coding </i></h6>
+            <p>Experienced working startup product based companies(2+ years) in working with ORM, Designing & Developing RESTful APIs and Database, Writing scalable codes, Versioning, Debugging, Data Extraction/Analysis, Fraud Detection, Data visualisation, Big data. Integrating APIs, Automating Tasks and equipped with understanding of Data Science and Data Analytics.</p>
+        </div>
     </div>
-  </div>
-  <hr>
+  
+    <hr>
   
   <!-- Footer -->
-  <footer class="w3-row-padding w3-padding-32">
-    <div class="w3-third">
-      <h3>Developer</h3>
-      <p>Designed, Developed and Deployed by Hrishikesh Gupta<br>hrishi123gupta@gmail.com</p>
+    <footer class="w3-row-padding w3-padding-32">
+        <div class="w3-third">
+            <h3>Developer</h3>
+            <p>Designed, Developed and Deployed by Hrishikesh Gupta<br>hrishi123gupta@gmail.com</p>
       <!--       <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
  -->    </div>
   
-    <div class="w3-third">
-      <h3>BLOG POSTS</h3>
-      <ul class="w3-ul w3-hoverable">
-         <li class="w3-padding-16">
-          <img src="{% static 'hosting/images/linkedin.png' %}" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large"><a href=""><a href="https://www.linkedin.com/in/hrishikesh-gupta-22b532151/">Hrishikesh</a></span><br>
-          <span>Connect here</span>
-        </li> 
-        <!-- <li class="w3-padding-16">
-          <img src="{% static 'hosting/images/facebook.png' %}" class="w3-left w3-margin-right" style="width:50px">
-          <span class="w3-large"><a href="https://www.facebook.com/hrishikesh.gupta.50">Hrishikesh</a></span><br>
-          <span>Connect here</span>
-        </li> -->
-      </ul>
-    </div>
+        <div class="w3-third">
+            <h3>BLOG POSTS</h3>
+            <ul class="w3-ul w3-hoverable">
+                <li class="w3-padding-16">
+                <img src="{% static 'hosting/images/linkedin.png' %}" class="w3-left w3-margin-right" style="width:50px">
+                <span class="w3-large"><a href="https://www.linkedin.com/in/hrishikesh-gupta-22b532151/">Hrishikesh</a></span><br>
+                <span>Connect here</span>
+                </li> 
+            </ul>
+        </div>
 
-    <div class="w3-third w3-serif">
-      <h3>TECH STACKS</h3>
-      <p>
-        <span class="w3-tag w3-black w3-margin-bottom">Python</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Jgango</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flask</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cassandra</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">ELK</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">ML</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Keras</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Linux</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Seaborn</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Pandas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">GIT</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">GCP</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">MongoDB </span>
-      </p>
-    </div>
-  </footer>
+        <div class="w3-third w3-serif">
+            <h3>TECH STACKS</h3>
+            <p>
+            <span class="w3-tag w3-black w3-margin-bottom">Python</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Jgango</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flask</span>
+            <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cassandra</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">ELK</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">ML</span>
+            <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Keras</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Linux</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Seaborn</span>
+            <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Pandas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">GIT</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">GCP</span>
+            <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">MongoDB </span>
+            </p>
+        </div>
+    </footer>
 
-<!-- End page content -->
-</div>
 
 {% endblock content %}

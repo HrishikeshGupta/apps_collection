@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',
+    'covid_19.apps.Covid19Config',
     'studentdb.apps.StudentdbConfig',
     'reversegeo.apps.ReversegeoConfig',
     'weather.apps.WeatherConfig',
@@ -110,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -135,3 +137,6 @@ EMAIL_HOST_PASSWORD = os.environ.get('PASSWORD')
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

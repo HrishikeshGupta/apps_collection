@@ -1,0 +1,157 @@
+{% extends "hosting/base.html" %}
+{% load static %}
+
+{% block content %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'hosting/css/style.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+<!--     this is header in green -->
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <center>Here is the stats of India and {{ state_data.state }}</center>
+                </h1>
+            </div>
+        </div>
+    </section>
+    
+<!--     this is tables of count -->
+
+    <center>
+        <script type="text/javascript">
+            window.onload = function () {
+                var chart = new CanvasJS.Chart("chartContainer",
+                {
+                    title:{
+                      text: "Live Status of India"
+                    },
+                    animationEnabled:true,
+                    data: [
+                    {
+                      type: "bar",
+                      showInLegend: true,
+                      dataPoints: [
+                                    { y: {{ total_data.Total_active_cases }}, label: "Active Cases" },
+                                    { y: {{ total_data.Total_cured }}, label: "Cured" },
+                                    { y: {{ total_data.Total_deaths }}, label: "Deaths" },
+                                    { y: {{ total_data.Total_confirmed_cases }}, label: "Total Confirm Cases" },    
+                      ]
+                }
+                ]
+              });
+ 
+            var chart1 = new CanvasJS.Chart("chartContainer1",
+                {
+                    title:{
+                      text: "Live status of {{ state_data.state }}"
+                    },
+                    animationEnabled:true,
+                    data: [
+                    {
+                      type: "bar",
+                      showInLegend: true,
+                      dataPoints: [
+                        { y: {{ state_data.Active_Cases }}, label: "Active Cases" },
+                        { y: {{ state_data.Cured }}, label: "Cured" },
+                        { y: {{ state_data.Deaths }}, label: "Deaths" },
+                        { y: {{ state_data.Total_Confirmed_cases }}, label: "Total Confirmed Cases" },
+                      ]
+                }
+                ]
+              });
+//               try
+                var chart3 = new CanvasJS.Chart("chartContainer3", {
+    exportEnabled: true,
+    animationEnabled: true,
+    title:{
+        text: "India vs {{ state_data.state }}"
+    },
+    subtitles: [{
+        text: "covid19"
+    }], 
+    axisX: {
+        title: "    "
+    },
+    axisY: {
+        title: "India",
+        titleFontColor: "#4F81BC",
+        lineColor: "#4F81BC",
+        labelFontColor: "#4F81BC",
+        tickColor: "#4F81BC"
+    },
+    axisY2: {
+        title: "{{ state_data.state }}",
+        titleFontColor: "#C0504E",
+        lineColor: "#C0504E",
+        labelFontColor: "#C0504E",
+        tickColor: "#C0504E"
+    },
+    toolTip: {
+        shared: true
+    },
+    legend: {
+        cursor: "pointer",
+        itemclick: toggleDataSeries
+    },
+    data: [{
+        type: "column",
+        name: "India",
+        showInLegend: true,      
+        yValueFormatString: "##,##,##0.# Units",
+        dataPoints: [
+            { label: "Active Cases",  y: {{ total_data.Total_active_cases }} },
+            { label: "Cured", y: {{ total_data.Total_cured }} },
+            { label: "Deaths", y: {{ total_data.Total_deaths }} },
+            { label: "Total Confirmed Cases",  y: {{ total_data.Total_confirmed_cases }} }
+        ]
+    },
+    {
+        type: "column",
+        name: "{{ state_data.state }}",
+        axisYType: "secondary",
+        showInLegend: true,
+        yValueFormatString: "##,##,##0.# Units",
+        dataPoints: [
+            { label: "Active Cases", y: {{ state_data.Active_Cases }} },
+            { label: "Cured", y: {{ state_data.Cured }} },
+            { label: "Deaths", y: {{ state_data.Deaths }} },
+            { label: "Total Confirmed Cases", y: {{ state_data.Total_Confirmed_cases }} }
+        ]
+    }]
+});
+
+              
+              
+//             try
+//             chart.render();
+            chart1.render();
+            chart3.render();
+            function toggleDataSeries(e) {
+    if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+        e.dataSeries.visible = false;
+    } else {
+        e.dataSeries.visible = true;
+    }
+    e.chart.render();
+}
+            }
+    </script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<!--     <div id="chartContainer" style="height: 400px; width: 60%;"></div> -->
+    <br>
+    <div id="chartContainer1" style="height: 400px; width: 60%;"></div>
+    <hr>
+    <div id="chartContainer3" style="height: 400px; width: 70%;"></div>
+    
+    </center>
+
+        
+{% endblock content %}

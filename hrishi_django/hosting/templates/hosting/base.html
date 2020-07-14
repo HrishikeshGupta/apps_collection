@@ -11,13 +11,18 @@
         <body>
             <header>
 <!--                 <img src="{% static 'hosting/images/raise.png' %}" /> -->
-                <strong><p style="color:red;">RiaseUp2020</p></strong>
+                <strong><p style="color:Blue;">RiaseUp2020</p></strong>
                 <nav>
                     <ul>
-                        <li><a href="http://127.0.0.1:8000/hosting/">Home</a></li>
-                        <!-- <li><a href="">Customers</a></li>
-                        <li><a href="">Funding</a></li> -->
-                        <li><a href="http://127.0.0.1:8000/writers">Contact Us</a></li>
+                        <li><a href="/hosting">Home</a></li>
+                        <li><a href="/writers">Contact Us</a></li>
+                        
+                        {% if user.is_authenticated %}
+                            <li> <a a href='/hosting/logout'>Hello, {{user.username}}(Logout)</a></li>
+                        {% else %} 
+                            <li><a href='/hosting/login'>Login</a></li>
+                            <li><a href='/hosting/register'>Register</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </header>

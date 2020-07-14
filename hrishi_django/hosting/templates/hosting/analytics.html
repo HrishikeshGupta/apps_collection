@@ -35,6 +35,8 @@
                     <th>LATTITUDE & LONGITUDE SEARCHES</th>
                     <th>CITY SEARCHES</th>
                     <th>STUDENT DB ENTRIES</th>
+                    <th>TOTAL COVID19 SEARCHES</th>
+                    <th>TOTAL BLOGS</th>
 
                 </tr>
             </thead>
@@ -44,6 +46,8 @@
                     <td>{{ total_latlong_data }}</td>
                     <td>{{ total_city }}</td>
                     <td>{{ total_student_data.total_student_data }}</td>
+                    <td>{{ covid_19_searches }}
+                    <td>{{ total_blogs }}
                 <tr>
             </tbody>
         </table>
@@ -66,6 +70,8 @@
                         { y: {{ total_latlong_data }}, label: "Reverse Geo" },
                         { y: {{ total_city }}, label: "City Weather" },
                         { y: {{ total_student_data.total_student_data }}, label: "StudentDb" },
+                        { y: {{ covid_19_searches }}, label: "Covid19" },
+                        { y: {{ total_blogs }}, label: "Total Blogs" },
                       ]
                 }
                 ]
